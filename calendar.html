@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="calendar.css">
+   <link rel="stylesheet" href="index.css">
+   <link rel="stylesheet" href="nav.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+   <title>Health Care Program</title>
+</head>
+
+<body>
+   <nav>
+      <div class="container" style="margin: 0;">
+         <ul>
+            <li>
+               <a href="index.html" title="home">
+                  <img height="35px" src="./mainLogo.PNG" alt="">
+               </a>
+            </li>
+            <li><a href="#">자료찾기<i class='fa fa-angle-down'></i></a>
+               <ul>
+                  <li><a href="data_biceps.html">이두 아령 운동</a></li>
+                  <li><a href="data_squat.html">스쿼트</a></li>
+                  <li><a href="data_situp.html">윗몸 일으키기</a></li>
+               </ul>
+            </li>
+            <li> <a href="#">운동하기<i class='fa fa-angle-down'></i></a>
+               <ul>
+                  <li><a href="exercise_biceps.html">이두 아령 운동</a></li>
+                  <li><a href="exercise_squat.html">스쿼트</a></li>
+                  <li><a href="exercise_situp.html">윗몸 일으키기</a></li>
+               </ul>
+            </li>
+            <li><a href="calendar.html">기록</a></li>
+         </ul>
+      </div>
+   </nav>
+
+   <div class="main-container">
+      <div class="main-box">
+         <div class="calendar">
+            <div class="header">
+               <div class="year-month"></div>
+               <div class="nav">
+                  <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+                  <button class="nav-btn go-today" onclick="goToday()">Today</button>
+                  <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+               </div>
+            </div>
+            <!-- <div class="selectExercise">
+               <form action="">
+                  <fieldset>
+                     <legend>오늘한 운동</legend>
+                     <div>
+                        <label for="exercise"></label>
+                        <select name="exercise" id="exercise">
+                           <option value="스쿼트">스쿼트</option>
+                           <option value="이두아령운동">이두아령운동</option>
+                           <option value="윗몸일으키기">윗몸일으키기</option>
+                           <option value="기타">기타</option>
+                        </select>
+                     </div>
+                  </fieldset>
+               </form>
+            </div> -->
+   
+            <div class="ex">
+               <button value="open" type="button" class="exBtn btn btn-warning">운동선택</button>
+            </div>
+   
+            <div class="selectExercise">
+               <button value="a" type="button" class="btn btn-warning btna">스쿼트</button>
+               <button value="b" type="button" class="btn btn-warning btnb">이두아령운동</button>
+               <button value="c" type="button" class="btn btn-warning btnc">윗몸일으키기</button>
+               <button value="d" type="button" class="btn btn-warning btnd">기타</button>
+            </div>
+   
+            <div class="main">
+               <div class="days">
+                  <div class="day">일</div>
+                  <div class="day">월</div>
+                  <div class="day">화</div>
+                  <div class="day">수</div>
+                  <div class="day">목</div>
+                  <div class="day">금</div>
+                  <div class="day">토</div>
+               </div>
+               <div class="dates"></div>
+   
+            </div>
+         </div>
+      </div>
+      
+   </div>
+
+   <footer class="bottom">
+      <span>copyright &copy; 2022 Song</span>
+   </footer>
+
+   <script src="calendar.js"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+      </script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+
+      </script>
+
+   <script>
+      $('nav li').hover(
+         function () {
+            $('ul', this).stop().slideDown(200);
+         },
+         function () {
+            $('ul', this).stop().slideUp(200);
+         }
+      );
+
+      $('.date').val('noneSel');
+      var day;
+
+      $('.ex').click(function () {
+         if ($('.exBtn').val() == 'open') {
+            $('.selectExercise').css('display', 'block');
+            $('.exBtn').val('close');
+            $('.exBtn').html('닫기');
+            $('.exBtn').addClass('btn-danger');
+
+            $('.date').click(function (e) {
+               console.log(e.target);
+               day = e.target;
+               if ($('.date').val() == 'noneSel') {
+                  $('.date').val('Sel');
+                  $(day).css('background-color', 'orange')
+               }
+               else {
+                  $('.date').val('noneSel');
+                  $(day).css('background-color', 'rgba(255, 127, 80, 0.1)')
+               }
+            })
+
+            $('.btna').click(function () {
+               $(day).html('스쿼트');
+            })
+            $('.btnb').click(function () {
+               $(day).html('이두아령운동');
+            })
+            $('.btnc').click(function () {
+               $(day).html('윗몸일으키기');
+            })
+            $('.btnd').click(function () {
+               $(day).html('기타');
+            })
+         }
+         else {
+            $('.selectExercise').css('display', 'none');
+            $('.exBtn').val('open');
+            $('.exBtn').html('운동선택');
+            $('.exBtn').removeClass('btn-danger');
+         }
+      })
+
+
+
+   </script>
+</body>
+
+</html>
