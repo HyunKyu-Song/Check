@@ -1,5 +1,4 @@
 .main-container{
-   /* height: 1000px; */
    height: 100%;
    background-color: rgba(0, 255, 255, 0.215);
 }
@@ -46,4 +45,10 @@
    padding: 5px;
    padding-right: 15px;
    background-color: rgba(0, 255, 255, 0.408);
+}
+
+.up{
+   position: fixed;
+   bottom: 30px;
+   right: 30px;
 }

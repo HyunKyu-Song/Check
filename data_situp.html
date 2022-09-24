@@ -7,6 +7,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="calendar.css">
    <link rel="stylesheet" href="index.css">
+   <link rel="stylesheet" href="exercise_data.css">
    <link rel="stylesheet" href="nav.css">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -15,7 +16,7 @@
 
 <body>
    <nav>
-      <div class="container" style="margin: 0;">
+      <div id="top" class="container" style="margin: 0;">
          <ul>
             <li>
                <a href="index.html" title="home">
@@ -31,9 +32,9 @@
             </li>
             <li> <a href="#">운동하기<i class='fa fa-angle-down'></i></a>
                <ul>
-                  <li><a href="exercise_biceps.html">이두 아령 운동</a></li>
-                  <li><a href="exercise_squat.html">스쿼트</a></li>
-                  <li><a href="exercise_situp.html">윗몸 일으키기</a></li>
+                  <li><a href="#">이두 아령 운동</a></li>
+                  <li><a href="#">스쿼트</a></li>
+                  <li><a href="#">윗몸 일으키기</a></li>
                </ul>
             </li>
             <li><a href="calendar.html">기록</a></li>
@@ -42,8 +43,83 @@
    </nav>
 
    <div class="main-container">
-      
+      <h1 style="margin: 40px;">Sit-UP (윗몸 일으키기)</h1>
+      <div class="up">
+         <a href="#top">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+               class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+               <path
+                  d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+            </svg>
+         </a>
+      </div>
+
+      <div class="flex-container">
+         <img class="img-posture" src="https://via.placeholder.com/500" alt="시작 자세">
+         <div class="text">
+            <h3>시작 자세</h3>
+            <p>
+               1 바닥에 누워 무릎을 구부리고 발이 바닥과 떨어지지 않도록 한다. <br><br>
+               2 양손을 귀에 대고 복부에 힘을 주면서 고개를 살짝 든다.<br><br>
+            </p>
+         </div>
+
+         <div class="img-exercise">
+            <img class="img-posture" src="https://via.placeholder.com/500" alt="운동법">
+         </div>
+         <div class="video-exercise">
+            <iframe style="border-radius: 10px;" width="500" height="500"  src="https://www.youtube.com/embed/-VLquFsP3pU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         </div>
+         <div class="text">
+            <h3>Method of exercise (운동법)</h3>
+            <p>
+               1 팔꿈치가 무릎에 닿을 정도까지 등을 둥글게 구부리면서 상체를 일으킨다.<br><br>
+               2 복근에 힘이 풀어지지 않도록 천천히 긴장하면서 원위치한다.<br><br>
+               3 다리는 고정시키고 상체를 앞으로 굽혔다가 팔꿈치와 무릎이 닿고 다시 내려가는 것을 반복한다. <br><br>
+               <div class="video-btn">
+                  <button value="open" type="button" class="btn btn-info">영상으로 배우기</button>
+               </div>
+            </p>
+         </div>
+
+         <div class="good">
+            <h3>Good Posture (좋은 자세)</h3>
+         </div>
+         <div class="good-posture">
+            <img class="img-posture" src="https://via.placeholder.com/400" alt="좋은 자세">
+         </div>
+
+         <div class="good-posture">
+            <img class="img-posture" src="https://via.placeholder.com/400" alt="좋은 자세">
+         </div>
+
+         <div class="good-posture">
+            <img class="img-posture" src="https://via.placeholder.com/400" alt="좋은 자세">
+         </div>
+
+         <div class="bad">
+            <h3>Bad Posture (나쁜 자세)</h3>
+         </div>
+         <div class="bad-posture">
+            <img class="img-posture" src="https://via.placeholder.com/400" alt="나쁜 자세">
+         </div>
+
+         <div class="bad-posture">
+            <img class="img-posture" src="https://via.placeholder.com/400" alt="나쁜 자세">
+         </div>
+
+         <div class="bad-posture">
+            <img class="img-posture" src="https://via.placeholder.com/400" alt="나쁜 자세">
+         </div>
+      </div>
+
+      <div class="source">
+         <hr><em>내용 출처: 라이프에이드</em>
+         <hr>
+      </div>
+
    </div>
+
    <footer class="bottom">
       <span>copyright &copy; 2022 Song</span>
    </footer>
@@ -66,6 +142,23 @@
             $('ul', this).stop().slideUp(200);
          }
       );
+
+      $('.btn').click(function(){
+         if($('.btn').val() == 'open'){
+            $('.img-exercise').css('display', 'none');
+            $('.video-exercise').css('display', 'block');
+            $('.btn').html('영상 닫기');
+            $('.btn').addClass('btn-danger');
+            $('.btn').val('close');
+         }
+         else{
+            $('.video-exercise').css('display', 'none');
+            $('.img-exercise').css('display', 'block');
+            $('.btn').html('영상으로 배우기');
+            $('.btn').removeClass('btn-danger');
+            $('.btn').val('open');
+         }
+      })
    </script>
 </body>
 

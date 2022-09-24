@@ -1,0 +1,59 @@
+p{
+   text-align: left;
+   font-weight: bold;
+}
+
+.main-container {
+   padding: 20px;
+}
+
+.text{
+   margin-left: 50px;
+}
+
+.flex-container {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+}
+
+.source hr {
+   margin: 0;
+}
+
+.good-posture{
+   margin-left: 50px;
+}
+
+.bad-posture{
+   margin-left: 50px;
+}
+
+.img-posture{
+   margin-bottom: 50px;
+   border-radius: 10px;
+}
+
+.text h3{
+   font-weight: bolder;
+   text-align: center;
+   padding-bottom: 40px;
+}
+
+.good, .bad{
+   width: 100%;
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+.good h3, .bad h3{
+   font-weight: bolder;
+}
+
+.video-btn{
+   text-align: center;
+}
+
+.video-exercise{
+   display: none;
+}
